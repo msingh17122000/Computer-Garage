@@ -1,0 +1,46 @@
+<?php 
+
+if (session_status() === PHP_SESSION_NONE)
+	{
+    session_start();
+	}
+ ?>
+
+
+.user{
+    color:white;
+}
+
+<nav>
+<div class="logo lead font-weight-normal">CG</div>
+<label><input type="checkbox"id="click">
+<label for="click"class="menu-btn">
+    <i class="fas fa-bars"></i>
+</label>
+<ul style="margin-bottom:27px;">
+
+
+    <li> <a href="index.php"class="lead">Home</a></li>
+    <li> <a href="Products"class="lead">Products</a></li>
+    <li> <a href="#"class="lead">About us</a></li>
+    <li> <a href="#"class="lead">Contact us</a></li>
+    <li><span class='user'>
+    <?php
+ 
+    if(isset($_SESSION["pname"]))
+    {
+        print $_SESSION["pname"];
+        print'<a href="login.php"class="lead"id="acc"><img src="assets/user.png">&nbsp; Logout </a></li>';
+    }
+    else{
+        print"Guest";
+        print'<a href="login.php"class="lead"id="acc"><img src="assets/user.png">&nbsp; LogIn/Signup </a></li>';
+    }
+
+
+    
+    ?>
+    </span>
+     
+</ul>
+</nav>
